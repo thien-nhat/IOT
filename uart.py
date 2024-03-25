@@ -1,5 +1,7 @@
 import serial.tools.list_ports
 
+import os
+
 def getPort():
     ports = serial.tools.list_ports.comports()
     N = len(ports)
@@ -47,3 +49,6 @@ def readSerial(client):
                 mess = mess[end+1:]
 
 
+def writeData(data):
+    # ser.write(str(data))
+    os.system("echo " + str(data) + " > /dev/pts/3")
